@@ -11,7 +11,7 @@ import org.springframework.context.annotation.Configuration;
  *
  */
 @Configuration
-@MapperScan(value={"com.web.wxserviceclient.modules.**.mapper*"})
+@MapperScan(value={"com.balsampears.springbootdemo.mapper*"})
 public class MybatisPlusConfig {
 
     /**
