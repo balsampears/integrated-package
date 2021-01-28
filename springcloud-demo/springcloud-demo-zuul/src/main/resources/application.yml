@@ -1,0 +1,31 @@
+server:
+  port: 8091
+#  servlet:
+#    compression:
+#      enabled: true
+#      mime-types: application/javascript,application/json,application/xml,text/html,text/xml,text/plain,text/css,image/*
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8090/eureka/
+spring:
+  application:
+    name: springcloud-demo-zuul
+#  servlet:
+#    multipart:
+#      enabled: true
+#      max-file-size: 9999MB
+#      max-request-size: 9999MB
+  #json 时间戳统一转换
+  jackson:
+    date-format:   yyyy-MM-dd HH:mm:ss
+    time-zone:   GMT+8
+  resource:
+    static-locations: classpath:/static/,classpath:/public/,/Users/maza/myProjects/hetongguanli/upload
+zuul:
+  #需要忽略的头部信息，不在传播到其他服务
+  sensitive-headers: Access-Control-Allow-Origin
+  ignored-headers: Access-Control-Allow-Origin,H-APP-Id,Token,APPToken
+  routes:
+    springcloud-demo-service:
+      path: /demo-service/**
